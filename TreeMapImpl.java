@@ -12,6 +12,12 @@ public class TreeMapImpl<K,V> implements IMap<K, V> {
         this.map = new TreeMap<>();
     }
 
+    /**
+     * Método para agregar un Pokémon al mapa
+     * @param name: Nombre del Pokémon
+     * @param value: Lista con los datos del Pokémon
+     */
+
     @Override
     public void put(K name, V value) {
         if (!map.containsKey(name)) {
@@ -22,15 +28,30 @@ public class TreeMapImpl<K,V> implements IMap<K, V> {
         }
     }
 
+    /**
+     * Método para obtener un Pokémon del mapa
+     * @param name: Nombre del Pokémon
+     * @return: Lista con los datos del Pokémon
+     */
+
     @Override
     public V get(K name) {
         return map.get(name);
     }
 
+    /**
+     * Método para obtener una lista de nombres de los Pokemones
+     * @return: Lista con los nombres de los Pokemones
+     */
+
     @Override
     public List<K> keys() {
         return new ArrayList<>(map.keySet());
     }
+
+    /**
+     * Método para mostrar todos los Pokemones registrados en un mapa
+     */
 
     public void showAll() {
         // Lista de Pokemones a partir del Mapas

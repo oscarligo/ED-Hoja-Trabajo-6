@@ -4,6 +4,12 @@ import java.util.Map;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+/**
+ * Implementación de un LinkedHashMap para almacenar los Pokemones
+ * @author: Oscar Rompich 24880
+ * 
+ */
+
 public class LinkedHashMapImpl<K, V> implements IMap<K, V> {
     
     private LinkedHashMap<K, V> map;
@@ -11,6 +17,12 @@ public class LinkedHashMapImpl<K, V> implements IMap<K, V> {
     public LinkedHashMapImpl() {
         this.map = new LinkedHashMap<>();
     }
+
+    /**
+     * Método para agregar un Pokémon al mapa
+     * @param name: Nombre del Pokémon
+     * @param value: Lista con los datos del Pokémon
+     */
 
     @Override
     public void put(K name, V value) {
@@ -22,15 +34,31 @@ public class LinkedHashMapImpl<K, V> implements IMap<K, V> {
         }
     }
 
+    /**
+     * Método para obtener un Pokémon del mapa
+     * @param name: Nombre del Pokémon
+     * @return: Lista con los datos del Pokémon
+     */
+
+
     @Override
     public V get(K name) {
         return map.get(name);
     }
 
+    /**
+     * Método para obtener una lista de nombres de los Pokemones
+     * @return: Lista con los nombres de los Pokemones
+     */
+
     @Override
     public List<K> keys() {
         return new ArrayList<>(map.keySet());
     }
+
+    /**
+     * Método para mostrar todos los Pokemones registrados en un mapa
+     */
 
     public void showAll() {
 

@@ -7,6 +7,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
+/**
+ * Clase principal para el manejo dlas colecciones de pokemones.
+ * @author: Oscar Rompich 24880
+ * 
+ */
+
+
 public class Main {
     public static void main(String[] args) {
 
@@ -26,7 +33,7 @@ public class Main {
         // Mapa para almacenar los pokemones del usuario, se uso un LinkedHashMap 
         // ya que es más eficiente para la búsqueda de elementos
         
-        IMap<String, ArrayList<String>> coleccionUsuario = new LinkedHashMapImpl<>();
+        IMap<String, ArrayList<String>> coleccionUsuario = new HashMapImpl<>();
 
         // Seleccionar el tipo de mapa a utilizar
         while (!opcion.equals("4")) {
@@ -141,7 +148,7 @@ public class Main {
                             } 
                             
                         }
-                        
+
                         break;
 
                     case "6":
@@ -154,6 +161,14 @@ public class Main {
         }
         scanner.close();
     }
+
+
+
+    /**
+     * Método para leer un archivo CSV
+     * @param docName Nombre del archivo CSV
+     * @return Lista de listas con los datos del archivo CSV
+     */
 
 
     public static ArrayList<ArrayList<String>> CSVReader(String docName) {
