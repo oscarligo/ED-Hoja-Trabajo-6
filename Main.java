@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Map;
+
 import java.util.Scanner;
 
 
@@ -40,13 +40,13 @@ public class Main {
 
             switch (opcion) {
                 case "1":
-                    pokemonMap = new LinkedHashMapImpl<>();
+                    pokemonMap = Factory.mapFactory("1");
                     break;
                 case "2":
-                    pokemonMap = new TreeMapImpl<>();
+                    pokemonMap = Factory.mapFactory("2");
                     break;
                 case "3":
-                    pokemonMap = new HashMapImpl<>();
+                    pokemonMap = Factory.mapFactory("3");
                     break;
                 case "4":
                     System.out.println("Saliendo del Programa...");
@@ -130,24 +130,18 @@ public class Main {
                         System.out.print("Ingrese la habilidad a buscar: ");
                         String habilidad = scanner.nextLine().toLowerCase(); 
                         // Convertimos a minúsculas para evitar errores de mayúsculas
-                        
+                        System.out.println("Pokémones con la habilidad " + habilidad + ":\n");
+
                         for (String key : pokemonMap.keys()) {
                             ArrayList<String> pokemonData = pokemonMap.get(key);
                             if (pokemonData.get(7).toLowerCase().contains(habilidad)) {
                                 System.out.println("Nombre: " + key);
-                                System.out.println("Tipo 1: " + pokemonData.get(2));
-                                System.out.println("Tipo 2: " + pokemonData.get(3));
-                                System.out.println("Clasificación: " + pokemonData.get(4));
                                 System.out.println();
 
                             } 
                             
                         }
-
-
-                            
-
-
+                        
                         break;
 
                     case "6":
