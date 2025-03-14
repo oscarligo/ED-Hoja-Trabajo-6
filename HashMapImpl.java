@@ -1,4 +1,8 @@
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
+
 
 
 public class HashMapImpl<K,V> implements IMap<K, V> {
@@ -25,19 +29,26 @@ public class HashMapImpl<K,V> implements IMap<K, V> {
     }
 
     @Override
-    public void remove(K name) {
-        if (map.containsKey(name)) {
-            map.remove(name);
-        } else {
-            System.out.println("El Pokémon no está en la colección.");
-        }
+    public List<K> keys() {
+        return new ArrayList<>(map.keySet());
     }
 
     public void showAll() {
-        for (HashMap.Entry<K, V> entry : map.entrySet()) {
-            System.out.println(entry.getKey() + " -> " + entry.getValue());
-        }
+
+    // Lista de Pokemones a partir del Mapas
+
+    List<HashMap.Entry<K, V>> listaPokemones = new ArrayList<>(map.entrySet());
+
+    // Ordenar la lista de Pokemones por Tipo 1
+    listaPokemones.sort(Comparator.comparing(pokemon -> ((ArrayList<String>) pokemon.getValue()).get(2)));
+
+    // Mostrar los Pokémon ordenados por Tipo 1
+    for (HashMap.Entry<K, V> entry : listaPokemones) {
+        System.out.println(entry.getKey() + " -> Tipo 1: " + ((ArrayList<String>) entry.getValue()).get(2));
     }
+
+    }
+        
 
 }
 
